@@ -2,12 +2,12 @@ FROM fansin/alpine:glibc
 #
 MAINTAINER FansinZhao 171388204@qq.com
 
-ENV JAVA_VERSION=jdk-8u144-linux-x64
+ENV JAVA_VERSION=jdk-8u211-linux-x64
 
 #
-RUN wget -O oracle-jdk.tar.gz http://172.17.0.3/jdk-8u144-linux-x64.tar.gz && \
+RUN wget -O oracle-jdk.tar.gz http://172.17.0.3/jdk-8u211-linux-x64.tar.gz && \
     tar -zxvf oracle-jdk.tar.gz -C /usr/local/ && \
-    mv /usr/local/jdk1.8.0_144 /usr/local/jdk && \
+    mv /usr/local/jdk-8u211 /usr/local/jdk && \
     rm oracle-jdk.tar.gz && \
     rm -rf /usr/local/jdk/src.zip \
            /usr/local/jdk/db \
