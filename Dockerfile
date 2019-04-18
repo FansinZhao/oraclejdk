@@ -1,13 +1,17 @@
 FROM fansin/alpine:glibc
 #
 MAINTAINER FansinZhao 171388204@qq.com
+#java7->java9 $MAJOR.$update_release$build
+#java9+ $MAJOR.$MINOR.$SECURITY.$PATCH
+ENV MAJOR_UPDATE=jdk-8u211
+ENV MAJOR_UPDATE_BUILD=${MAJOR_UPDATE}-b12
+ENV JAVA_VERSION=${MAJOR_UPDATE_BUILD}-linux-x64
 
-ENV JAVA_VERSION=jdk-8u211-linux-x64
 
 #
-RUN wget -O oracle-jdk.tar.gz http://172.17.0.3/jdk-8u211-linux-x64.tar.gz && \
+RUN wget -O oracle-jdk.tar.gz http://download.oracle.com/otn-pub/java/jdk/${JAVA_VERSION}.tar.gz && \
     tar -zxvf oracle-jdk.tar.gz -C /usr/local/ && \
-    mv /usr/local/jdk-8u211 /usr/local/jdk && \
+    mv /usr/local/${MAJOR_UPDATE} /usr/local/jdk && \
     rm oracle-jdk.tar.gz && \
     rm -rf /usr/local/jdk/src.zip \
            /usr/local/jdk/db \
